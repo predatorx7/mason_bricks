@@ -1,0 +1,33 @@
+name: generate
+description: Generates files based on a schematic.
+
+repository: https://github.com/predatorx7/mason_bricks
+
+version: 0.1.0+1
+
+environment:
+  mason: ">=0.1.0-dev.49 <0.1.0"
+
+vars:
+  schematic:
+    type: enum
+    description: The schematic to generate
+    prompt: What is the schematic?
+    values:
+      - screen
+      - service
+  name:
+    type: string
+    description: Name of schematic
+    prompt: What is the name of this schematic component?
+  di:
+    type: enum
+    default: riverpod
+    description: The di framework that will be used by components
+    prompt: What is the di framework?
+    values:
+      - riverpod
+  screenRoutePath:
+    type: string
+    description: Route path to be used for the screen
+    prompt: What is the route path for the screen? SKIP THIS IF NOT GENERATING A SCREEN

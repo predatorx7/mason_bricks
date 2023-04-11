@@ -1,0 +1,13 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+final {{name.camelCase()}}ServiceProvider = Provider((ref) {
+    return const {{name.pascalCase()}}Service(); 
+});
+
+class {{name.pascalCase()}}Service {
+    const {{name.pascalCase()}}Service();
+
+    int doSomething() {
+        return 0;
+    }   
+}

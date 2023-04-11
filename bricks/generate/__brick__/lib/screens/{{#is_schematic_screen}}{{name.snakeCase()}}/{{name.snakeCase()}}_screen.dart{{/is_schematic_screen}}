@@ -1,0 +1,46 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
+
+import '{{name.snakeCase()}}_controller.dart';
+import '{{name.snakeCase()}}_provider.dart';
+import '{{name.snakeCase()}}_state.dart';
+
+// TODO: Add `{{name.pascalCase()}}Screen.navigation` in your `GoRouter`'s routes
+class _{{name.pascalCase()}}ScreenNavigation {
+    final route = GoRoute(
+        path: '{{{screen_route_path}}}',
+        builder: (context, state) {
+            return {{name.pascalCase()}}Screen();
+        },
+    );
+
+    // add other ways create a path for navigating to this screen. 
+}
+
+class {{name.pascalCase()}}Screen extends ConsumerWidget {
+    const {{name.pascalCase()}}Screen();
+
+    static final navigation = _{{name.pascalCase()}}ScreenNavigation();
+
+    Widget build(BuildContext context, WidgetRef ref) {
+        ref.listen<{{name.pascalCase()}}ScreenState>({{name.camelCase()}}ControllerProvider, (prev, next) {
+          // do something
+        });
+
+        final screenState = ref.watch({{name.camelCase()}}ControllerProvider);
+
+        return Scaffold(
+            appBar: AppBar(
+                title: Text("{{name.sentenceCase()}}"),
+            ),
+            body: ElevatedButton(
+              onPressed: () {
+                final controller = ref.read({{name.camelCase()}}ControllerProvider.notifier);
+                controller.doSomething();
+              },
+              child: Placeholder(),
+            ),
+        );
+    }   
+}

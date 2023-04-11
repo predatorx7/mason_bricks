@@ -1,0 +1,3 @@
+bricks:
+  generate:
+    path: bricks/generate

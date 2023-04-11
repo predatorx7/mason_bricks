@@ -1,0 +1,4 @@
+class {{name.pascalCase()}}ScreenState {
+  const {{name.pascalCase()}}ScreenState();
+}
+
