@@ -1,0 +1,4 @@
+class HelloWorldScreenState {
+  const HelloWorldScreenState();
+}
+

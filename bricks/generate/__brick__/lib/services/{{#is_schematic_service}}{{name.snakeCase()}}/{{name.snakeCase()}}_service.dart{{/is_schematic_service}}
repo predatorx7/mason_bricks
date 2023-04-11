@@ -1,0 +1,7 @@
+class {{name.pascalCase()}}Service {
+    const {{name.pascalCase()}}Service();
+
+    int doSomething() {
+        return 0;
+    }   
+}

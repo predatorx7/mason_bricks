@@ -1,7 +1,7 @@
 name: generate
 description: Generates files based on a schematic.
 
-repository: https://github.com/predatorx7/mason_bricks
+repository: https://github.com/predatorx7/mason_bricks/tree/main/bricks/generate
 
 version: 0.1.0+1
 
