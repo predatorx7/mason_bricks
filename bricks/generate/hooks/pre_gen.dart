@@ -40,19 +40,27 @@ Future<void> run(HookContext context) async {
         'type': 'void',
       });
     } else {
-      logger.alert(lightYellow.wrap('enter "e" to exit adding methods'));
-      logger.alert('Format: returnType methodName e.g, String myMethod:');
+      logger
+        ..alert(lightYellow.wrap('enter "e" to exit adding methods'))
+        ..alert('Format: returnType methodName e.g, String myMethod:');
 
       while (true) {
-        final method =
-            logger.prompt(':').replaceAll(RegExp('\\s+'), ' ').trim();
+        final method = logger
+            .prompt(':')
+            .replaceAll(
+              RegExp(r'\s+'),
+              ' ',
+            )
+            .trim();
         if (method.toLowerCase() == 'e') {
           break;
         }
 
         if (!method.contains(' ')) {
           logger.alert(
-              'That was not a valid format -> returnType methodName e.g, String myMethod');
+            // ignore: lines_longer_than_80_chars
+            'That was not a valid format -> returnType methodName e.g, String myMethod',
+          );
           continue;
         }
 
