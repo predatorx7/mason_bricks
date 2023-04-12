@@ -5,6 +5,8 @@ environment:
 
 dependencies:
   mason: ^0.1.0-dev
+  path: ^1.8.3
+  yaml: ^3.1.1
 
 dev_dependencies:
   very_good_analysis: ^4.0.0

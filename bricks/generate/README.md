@@ -36,7 +36,7 @@ Then add your methods in the service! (Optional and available only for service)
 
 `mason make generate -c generate_config.json`
 
-[Example Config](https://github.com/predatorx7/mason_bricks/tree/main/bricks/generate/model_config_template.json):
+[Example Config](https://github.com/predatorx7/mason_bricks/tree/main/bricks/generate/generate_config_template.json):
 
 ```json
 {

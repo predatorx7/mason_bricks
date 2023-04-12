@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:mason/mason.dart';
 
 import 'recase.dart';
+import 'utils.dart';
 
 Future<void> run(HookContext context) async {
   final schematic = context.vars['schematic'] as String;
@@ -8,14 +11,19 @@ Future<void> run(HookContext context) async {
   final di = context.vars['di'] as String;
   final name = context.vars['name'] as String;
 
+  final logger = context.logger;
+
+  final packageName = getPackageName();
+
+  logger.info('Generating for package "$packageName"');
+
   context.vars = {
     ...context.vars,
     'is_schematic_screen': schematic == 'screen',
     'is_schematic_service': schematic == 'service',
     'use_di_riverpod': di == 'riverpod',
+    'package_name': packageName,
   };
-
-  final logger = context.logger;
 
   if (schematic == 'screen') {
     final screenRoutePath = logger.prompt(
