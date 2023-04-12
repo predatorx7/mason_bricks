@@ -3,13 +3,13 @@ import 'dart:async';
 import '{{name.snakeCase()}}_service.dart';
 
 class {{name.pascalCase()}}ServiceImpl implements {{name.pascalCase()}}Service {
-    const {{name.pascalCase()}}ServiceImpl();
+  const {{name.pascalCase()}}ServiceImpl();
 
-    {{#methods}}
-    /// A description for {{name}}
-    @override
-    FutureOr<{{{type}}}> {{name.camelCase()}}() {
-        throw UnimplementedError();
-    }
-    {{/methods}}
+  {{#methods}}
+  /// A description for {{name}}
+  @override
+  FutureOr<{{{type}}}> {{name.camelCase()}}() {
+    throw UnimplementedError();
+  }
+  {{/methods}}
 }

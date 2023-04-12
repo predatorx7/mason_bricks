@@ -4,5 +4,5 @@ import '{{name.snakeCase()}}_service.dart';
 import '{{name.snakeCase()}}_service_impl.dart';
 
 final {{name.camelCase()}}ServiceProvider = Provider<{{name.pascalCase()}}Service>((ref) {
-    return const {{name.pascalCase()}}ServiceImpl(); 
+  return const {{name.pascalCase()}}ServiceImpl(); 
 });

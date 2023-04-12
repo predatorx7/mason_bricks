@@ -1,11 +1,11 @@
 import 'dart:async';
 
 abstract class {{name.pascalCase()}}Service {
-    // Private constructor for now allowing this class to be extended.
-    const {{name.pascalCase()}}Service._();
+  // Private constructor for now allowing this class to be extended.
+  const {{name.pascalCase()}}Service._();
 
-    {{#methods}}
-    /// A description for {{name}}
-    FutureOr<{{{type}}}> {{name.camelCase()}}();
-    {{/methods}}
+  {{#methods}}
+  /// A description for {{name}}
+  FutureOr<{{{type}}}> {{name.camelCase()}}();
+  {{/methods}}
 }
