@@ -1,8 +1,5 @@
-import 'dart:io';
-
 import 'package:mason/mason.dart';
 
-import 'recase.dart';
 import 'utils.dart';
 
 Future<void> run(HookContext context) async {
@@ -28,7 +25,7 @@ Future<void> run(HookContext context) async {
   if (schematic == 'screen') {
     final screenRoutePath = logger.prompt(
       'What is the route path for the screen?',
-      defaultValue: '/${ReCase(name).snakeCase}',
+      defaultValue: '/${name.snakeCase}',
     );
     context.vars = {
       ...context.vars,

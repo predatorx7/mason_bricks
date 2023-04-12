@@ -34,7 +34,7 @@ class {{name.pascalCase()}}Screen extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("{{name.sentenceCase()}}"),
+        title: Text(screenState.toString()),
       ),
       body: ElevatedButton(
         onPressed: () {

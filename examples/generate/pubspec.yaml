@@ -1,6 +1,12 @@
 name: generate_example
 environment:
-  sdk: '^2.17.0'
+  sdk: ">=2.17.0 <3.0.0"
 dependencies:
+  flutter:
+    sdk: flutter
   flutter_riverpod: ^2.3.4
   go_router: ^6.5.5
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  test: ^1.16.0

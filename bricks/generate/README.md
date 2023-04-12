@@ -64,10 +64,14 @@ Then add your methods in the service! (Optional and available only for service)
 │   └── screens
 │       └── hello_world
 │           ├── hello_world_controller.dart
-│           ├── hello_world.dart
 │           ├── hello_world_provider.dart
 │           ├── hello_world_screen.dart
-│           └── hello_world_state.dart
+│           ├── hello_world_state.dart
+│           └── hello_world.dart
+├── tests
+│   └── screens
+│       └── hello_world
+│           └── hello_world_screen_test.dart
 └── ...
 ```
 
@@ -82,6 +86,10 @@ Then add your methods in the service! (Optional and available only for service)
 │           ├── hello_world_provider.dart
 │           ├── hello_world_service.dart
 │           └── hello_world_service_impl.dart
+├── tests
+│   └── services
+│       └── hello_world
+│           └── hello_world_service_test.dart
 └── ...
 ```
 

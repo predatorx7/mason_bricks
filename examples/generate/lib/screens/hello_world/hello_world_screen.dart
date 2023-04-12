@@ -7,39 +7,42 @@ import 'hello_world_state.dart';
 
 // TODO: Add `HelloWorldScreen.navigation` in your `GoRouter`'s routes
 class _HelloWorldScreenNavigation {
-    final route = GoRoute(
-        path: '/hello_world',
-        builder: (context, state) {
-            return HelloWorldScreen();
-        },
-    );
+  final route = GoRoute(
+    path: '/hello_world',
+    builder: (context, state) {
+      return HelloWorldScreen();
+    },
+  );
 
-    // add other ways create a path for navigating to this screen. 
+  // add other ways create a path for navigating to this screen. 
 }
 
 class HelloWorldScreen extends ConsumerWidget {
-    const HelloWorldScreen({super.key});
+  const HelloWorldScreen({super.key});
 
-    static final navigation = _HelloWorldScreenNavigation();
+  static final navigation = _HelloWorldScreenNavigation();
 
-    Widget build(BuildContext context, WidgetRef ref) {
-        ref.listen<HelloWorldScreenState>(helloWorldControllerProvider, (prev, next) {
-          // do something
-        });
+  Widget build(BuildContext context, WidgetRef ref) {
+    ref.listen<HelloWorldScreenState>(
+      helloWorldControllerProvider, 
+      (prev, next) {
+        // do something
+      },
+    );
 
-        final screenState = ref.watch(helloWorldControllerProvider);
+    final screenState = ref.watch(helloWorldControllerProvider);
 
-        return Scaffold(
-            appBar: AppBar(
-                title: Text("Hello world"),
-            ),
-            body: ElevatedButton(
-              onPressed: () {
-                final controller = ref.read(helloWorldControllerProvider.notifier);
-                controller.doSomething();
-              },
-              child: Placeholder(),
-            ),
-        );
-    }   
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(screenState.toString()),
+      ),
+      body: ElevatedButton(
+        onPressed: () {
+          final controller = ref.read(helloWorldControllerProvider.notifier);
+          controller.doSomething();
+        },
+        child: Placeholder(),
+      ),
+    );
+  }   
 }

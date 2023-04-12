@@ -1,7 +1,7 @@
 import 'dart:async';
 
 abstract class {{name.pascalCase()}}Service {
-  // Private constructor for now allowing this class to be extended.
+  // Private constructor for not allowing this class to be extended.
   const {{name.pascalCase()}}Service._();
 
   {{#methods}}

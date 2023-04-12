@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:{{package_name}}/screens/{{name.snakeCase()}}/{{name.snakeCase()}}.dart';
+import 'package:generate_example/screens/hello_world/hello_world.dart';
 
 class _MyTestApp extends StatelessWidget {
   const _MyTestApp();
@@ -11,7 +11,7 @@ class _MyTestApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: {{name.pascalCase()}}Screen(),
+      home: HelloWorldScreen(),
     );
   }
 }
@@ -22,6 +22,6 @@ void main() {
     await tester.pumpWidget(const ProviderScope(child: _MyTestApp()));
 
     // Verify that our appbar title has correct label.
-    expect(find.text('{{name.sentenceCase()}}'), findsOneWidget);
+    expect(find.text('Hello world'), findsOneWidget);
   });
 }
