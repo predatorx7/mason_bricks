@@ -1,7 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'hello_world_service.dart';
+import 'hello_world_service_impl.dart';
 
-final helloWorldServiceProvider = Provider((ref) {
-    return const HelloWorldService(); 
+final helloWorldServiceProvider = Provider<HelloWorldService>((ref) {
+    return const HelloWorldServiceImpl(); 
 });

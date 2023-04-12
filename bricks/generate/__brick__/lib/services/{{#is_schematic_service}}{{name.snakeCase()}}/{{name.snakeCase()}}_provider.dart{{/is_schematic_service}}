@@ -1,7 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '{{name.snakeCase()}}_service.dart';
+import '{{name.snakeCase()}}_service_impl.dart';
 
-final {{name.camelCase()}}ServiceProvider = Provider((ref) {
-    return const {{name.pascalCase()}}Service(); 
+final {{name.camelCase()}}ServiceProvider = Provider<{{name.pascalCase()}}Service>((ref) {
+    return const {{name.pascalCase()}}ServiceImpl(); 
 });

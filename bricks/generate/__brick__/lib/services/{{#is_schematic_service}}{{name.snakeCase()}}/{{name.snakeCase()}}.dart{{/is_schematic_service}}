@@ -1,0 +1,3 @@
+export '{{name.snakeCase()}}_provider.dart';
+export '{{name.snakeCase()}}_service.dart';
+export '{{name.snakeCase()}}_service_impl.dart';

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-import '{{name.snakeCase()}}_controller.dart';
 import '{{name.snakeCase()}}_provider.dart';
 import '{{name.snakeCase()}}_state.dart';
 
@@ -19,7 +18,7 @@ class _{{name.pascalCase()}}ScreenNavigation {
 }
 
 class {{name.pascalCase()}}Screen extends ConsumerWidget {
-    const {{name.pascalCase()}}Screen();
+    const {{name.pascalCase()}}Screen({super.key});
 
     static final navigation = _{{name.pascalCase()}}ScreenNavigation();
 

@@ -1,7 +1,11 @@
-class {{name.pascalCase()}}Service {
-    const {{name.pascalCase()}}Service();
+import 'dart:async';
 
-    int doSomething() {
-        return 0;
-    }   
+abstract class {{name.pascalCase()}}Service {
+    // Private constructor for now allowing this class to be extended.
+    const {{name.pascalCase()}}Service._();
+
+    {{#methods}}
+    /// A description for {{name}}
+    FutureOr<{{{type}}}> {{name.camelCase()}}();
+    {{/methods}}
 }

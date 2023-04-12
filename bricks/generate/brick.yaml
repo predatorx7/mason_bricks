@@ -27,7 +27,3 @@ vars:
     prompt: What is the di framework?
     values:
       - riverpod
-  screenRoutePath:
-    type: string
-    description: Route path to be used for the screen
-    prompt: What is the route path for the screen? SKIP THIS IF NOT GENERATING A SCREEN

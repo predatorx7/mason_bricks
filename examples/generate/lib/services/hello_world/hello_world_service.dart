@@ -1,7 +1,14 @@
-class HelloWorldService {
-    const HelloWorldService();
+import 'dart:async';
 
-    int doSomething() {
-        return 0;
-    }   
+abstract class HelloWorldService {
+    // Private constructor for now allowing this class to be extended.
+    const HelloWorldService._();
+
+    
+    /// A description for sayHello
+    FutureOr<String> sayHello();
+    
+    /// A description for didGreet
+    FutureOr<bool> didGreet();
+    
 }

@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-import 'hello_world_controller.dart';
 import 'hello_world_provider.dart';
 import 'hello_world_state.dart';
 
 // TODO: Add `HelloWorldScreen.navigation` in your `GoRouter`'s routes
 class _HelloWorldScreenNavigation {
     final route = GoRoute(
-        path: '/home',
+        path: '/hello_world',
         builder: (context, state) {
             return HelloWorldScreen();
         },
@@ -19,7 +18,7 @@ class _HelloWorldScreenNavigation {
 }
 
 class HelloWorldScreen extends ConsumerWidget {
-    const HelloWorldScreen();
+    const HelloWorldScreen({super.key});
 
     static final navigation = _HelloWorldScreenNavigation();
 
