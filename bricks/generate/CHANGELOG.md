@@ -1,3 +1,8 @@
+# 0.1.1
+
+- Update README
+- Add widget as a schematic
+
 # 0.1.0+1
 
 - Add screen schematic generation

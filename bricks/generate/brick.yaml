@@ -16,6 +16,7 @@ vars:
     values:
       - screen
       - service
+      - widget
   name:
     type: string
     description: Name of schematic

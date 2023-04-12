@@ -41,6 +41,7 @@ Future<void> run(HookContext context) async {
     ...context.vars,
     'is_schematic_screen': schematic == 'screen',
     'is_schematic_service': schematic == 'service',
+    'is_schematic_widget': schematic == 'widget',
     'use_di_riverpod': di == 'riverpod',
     'package_name': packageName,
   };
