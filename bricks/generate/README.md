@@ -28,7 +28,7 @@ Then add your methods in the service! (Optional and available only for service)
 | Variable      | Description                                                | Default                                   | Type     |
 | ------------- | ---------------------------------------------------------- | ----------------------------------------- | -------- |
 | `schematic`  | The schematic to generate                                      | screen (screen, service)                                     | `enum` |
-| `name` | The name of the schematic |      | `array`  |
+| `name` | The name of the schematic |      | `string`  |
 | `di`       | The di framework that will be used by components                                         | riverpod (riverpod) | `enum`   |
 
 
