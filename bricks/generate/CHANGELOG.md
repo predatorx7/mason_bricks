@@ -1,3 +1,6 @@
 # 0.1.0+1
 
-- TODO: Describe initial release.
+- Add screen schematic generation
+- Add service schematic generation
+- Add riverpod for di with screen or service
+- Add test generation for screen and service
