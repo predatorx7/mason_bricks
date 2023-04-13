@@ -1,0 +1,128 @@
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+
+import '{{name.snakeCase()}}.dart';
+
+// Examples can assume:
+// late BuildContext context;
+
+/// A [{{name.pascalCase()}}ThemeData] that theme to [{{name.pascalCase()}}] with
+/// [{{name.pascalCase()}}Theme.of].
+@immutable
+class {{name.pascalCase()}}ThemeData with Diagnosticable {
+  /// Creates an [{{name.pascalCase()}}ThemeData].
+  ///
+  /// The properties [{{name.camelCase()}}Property] may be null.
+  const {{name.pascalCase()}}ThemeData({
+    this.{{name.camelCase()}}Property,
+  });
+
+  /// Description for [{{name.camelCase()}}].
+  final Object? {{name.camelCase()}}Property;
+
+  /// Creates a copy of this object but with the given fields replaced with the
+  /// new values.
+  {{name.pascalCase()}}ThemeData copyWith({
+    Object? {{name.camelCase()}}Property,
+  }) {
+    return {{name.pascalCase()}}ThemeData(
+      {{name.camelCase()}}Property: {{name.camelCase()}}Property ?? this.{{name.camelCase()}}Property,
+    );
+  }
+
+  /// Linearly interpolate between two {{name.sentenceCase()}} themes.
+  static {{name.pascalCase()}}ThemeData? lerp(
+      {{name.pascalCase()}}ThemeData? a, 
+      {{name.pascalCase()}}ThemeData? b, 
+      double t,
+    ) {
+    if (a == null && b == null) {
+      return null;
+    }
+    return {{name.pascalCase()}}ThemeData(
+      {{name.camelCase()}}Property:
+          t < 0.5 ? a?.{{name.camelCase()}}Property : b?.{{name.camelCase()}}Property,
+    );
+  }
+
+  @override
+  int get hashCode {
+    final List<Object?> values = <Object?>[
+      {{name.camelCase()}}Property,
+    ];
+    return Object.hashAll(values);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (other.runtimeType != runtimeType) {
+      return false;
+    }
+    return other is {{name.pascalCase()}}ThemeData &&
+        other.{{name.camelCase()}}Property == {{name.camelCase()}}Property;
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty<Object?>(
+      '{{name.camelCase()}}Property',
+      {{name.camelCase()}}Property,
+      defaultValue: null,
+    ));
+  }
+}
+
+/// An inherited widget that provides theme for [{{name.pascalCase()}}] in this
+/// widget's subtree.
+class {{name.pascalCase()}}Theme extends InheritedTheme {
+  /// Creates a theme for [{{name.pascalCase()}}] in this widget's subtree.
+  const {{name.pascalCase()}}Theme({
+    super.key,
+    required this.data,
+    required super.child,
+  });
+
+  /// Specifies the theme overrides for descendant [{{name.pascalCase()}}] widget.
+  final {{name.pascalCase()}}ThemeData data;
+
+  /// The closest instance of this class that encloses the given context.
+  ///
+  /// Typical usage is as follows:
+  ///
+  /// ```dart
+  /// {{name.pascalCase()}}ThemeData? theme = {{name.pascalCase()}}Theme.maybeOf(context);
+  /// ```
+  static {{name.pascalCase()}}ThemeData? maybeOf(BuildContext context) {
+    final {{name.pascalCase()}}Theme? {{name.camelCase()}}Theme =
+        context.dependOnInheritedWidgetOfExactType<{{name.pascalCase()}}Theme>();
+    return {{name.camelCase()}}Theme?.data;
+  }
+
+  /// The closest instance of this class that encloses the given context.
+  ///
+  /// If there is no enclosing [{{name.pascalCase()}}Theme] widget, then
+  /// a default [{{name.pascalCase()}}ThemeData] object is used.
+  ///
+  /// Typical usage is as follows:
+  ///
+  /// ```dart
+  /// {{name.pascalCase()}}ThemeData theme = {{name.pascalCase()}}Theme.of(context);
+  /// ```
+  static {{name.pascalCase()}}ThemeData of(BuildContext context) {
+    final {{name.pascalCase()}}Theme? {{name.camelCase()}}Theme =
+        context.dependOnInheritedWidgetOfExactType<{{name.pascalCase()}}Theme>();
+    return {{name.camelCase()}}Theme?.data ?? {{name.pascalCase()}}ThemeData();
+  }
+
+  @override
+  Widget wrap(BuildContext context, Widget child) {
+    return {{name.pascalCase()}}Theme(data: data, child: child);
+  }
+
+  @override
+  bool updateShouldNotify({{name.pascalCase()}}Theme oldWidget) => data != oldWidget.data;
+}

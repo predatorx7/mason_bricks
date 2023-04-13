@@ -10,7 +10,7 @@
 // copies of the Software, and to permit persons to whom the Software is
 // furnished to do so, subject to the following conditions:
 //
-// The above copyright notice and this permission notice shall be included in 
+// The above copyright notice and this permission notice shall be included in
 // all copies or substantial portions of the Software.
 //
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
@@ -46,65 +46,76 @@ Future<void> run(HookContext context) async {
     'package_name': packageName,
   };
 
-  if (schematic == 'screen') {
-    final screenRoutePath = logger.prompt(
-      'What is the route path for the screen?',
-      defaultValue: '/${name.snakeCase}',
-    );
-    context.vars = {
-      ...context.vars,
-      'screen_route_path': screenRoutePath,
-    };
-  }
+  switch (schematic) {
+    case 'screen':
+      final screenRoutePath = logger.prompt(
+        'What is the route path for the screen?',
+        defaultValue: '/${name.snakeCase}',
+      );
+      context.vars = {
+        ...context.vars,
+        'screen_route_path': screenRoutePath,
+      };
+      break;
+    case 'service':
+      final methods = <Map<String, dynamic>>[];
 
-  if (schematic == 'service') {
-    final methods = <Map<String, dynamic>>[];
-
-    if (!logger.confirm(
-      '? Do you want to add methods to your service?',
-      defaultValue: true,
-    )) {
-      methods.add({
-        'name': 'doSomething',
-        'type': 'void',
-      });
-    } else {
-      logger
-        ..alert(lightYellow.wrap('enter "e" to exit adding methods'))
-        ..alert('Format: returnType methodName e.g, String myMethod:');
-
-      while (true) {
-        final method = logger
-            .prompt(':')
-            .replaceAll(
-              RegExp(r'\s+'),
-              ' ',
-            )
-            .trim();
-        if (method.toLowerCase() == 'e') {
-          break;
-        }
-
-        if (!method.contains(' ')) {
-          logger.alert(
-            // ignore: lines_longer_than_80_chars
-            'That was not a valid format -> returnType methodName e.g, String myMethod',
-          );
-          continue;
-        }
-
-        final splitProperty = method.split(' ');
-        final propertyType = splitProperty[0];
-        final propertyName = splitProperty[1];
+      if (!logger.confirm(
+        '? Do you want to add methods to your service?',
+        defaultValue: true,
+      )) {
         methods.add({
-          'name': propertyName,
-          'type': propertyType,
+          'name': 'doSomething',
+          'type': 'void',
         });
+      } else {
+        logger
+          ..alert(lightYellow.wrap('enter "e" to exit adding methods'))
+          ..alert('Format: returnType methodName e.g, String myMethod:');
+
+        while (true) {
+          final method = logger
+              .prompt(':')
+              .replaceAll(
+                RegExp(r'\s+'),
+                ' ',
+              )
+              .trim();
+          if (method.toLowerCase() == 'e') {
+            break;
+          }
+
+          if (!method.contains(' ')) {
+            logger.alert(
+              // ignore: lines_longer_than_80_chars
+              'That was not a valid format -> returnType methodName e.g, String myMethod',
+            );
+            continue;
+          }
+
+          final splitProperty = method.split(' ');
+          final propertyType = splitProperty[0];
+          final propertyName = splitProperty[1];
+          methods.add({
+            'name': propertyName,
+            'type': propertyType,
+          });
+        }
       }
-    }
-    context.vars = {
-      ...context.vars,
-      'methods': methods,
-    };
+      context.vars = {
+        ...context.vars,
+        'methods': methods,
+      };
+      break;
+    case 'widget':
+      final widgetNeedsTheme = logger.confirm(
+        '? Do you want to add an InheritedTheme to your widget?',
+        defaultValue: true,
+      );
+      context.vars = {
+        ...context.vars,
+        'needs_theme_for_widget': widgetNeedsTheme,
+      };
+      break;
   }
 }

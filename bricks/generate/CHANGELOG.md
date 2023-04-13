@@ -1,3 +1,7 @@
+# 0.1.2
+
+- Add InheritedTheme generation for widget schematic in the `pre_gen` hook.
+
 # 0.1.1
 
 - Update README

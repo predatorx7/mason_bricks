@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+{{#needs_theme_for_widget}}
+import '{{name.snakeCase()}}_theme.dart';
+export '{{name.snakeCase()}}_theme.dart';
+{{/needs_theme_for_widget}}
 
 class {{name.pascalCase()}} extends StatelessWidget {
   const {{name.pascalCase()}}({super.key});
 
   Widget build(BuildContext context) {
-    return Placeholder();
+    {{#needs_theme_for_widget}}{{> widget_with_theme }}{{/needs_theme_for_widget}}{{^needs_theme_for_widget}}{{> widget_without_theme }}{{/needs_theme_for_widget}}
   }
 }

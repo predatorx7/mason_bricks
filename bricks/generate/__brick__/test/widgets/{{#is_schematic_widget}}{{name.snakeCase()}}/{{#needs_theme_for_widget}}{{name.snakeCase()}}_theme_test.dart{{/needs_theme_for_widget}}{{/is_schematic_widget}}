@@ -1,0 +1,83 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter_test/flutter_test.dart';
+
+import 'package:{{package_name}}/widgets/{{name.snakeCase()}}/{{name.snakeCase()}}.dart';
+
+void main() {
+  test('{{name.pascalCase()}}ThemeData copyWith, ==, hashCode basics', () {
+    expect(const {{name.pascalCase()}}ThemeData(), const {{name.pascalCase()}}ThemeData().copyWith());
+    expect(const {{name.pascalCase()}}ThemeData().hashCode,
+        const {{name.pascalCase()}}ThemeData().copyWith().hashCode);
+  });
+
+  test('{{name.pascalCase()}}ThemeData defaults', () {
+    const {{name.pascalCase()}}ThemeData themeData = {{name.pascalCase()}}ThemeData();
+    expect(themeData.{{name.camelCase()}}Property, null);
+  });
+
+  testWidgets('Default {{name.pascalCase()}}ThemeData debugFillProperties',
+      (WidgetTester tester) async {
+    final DiagnosticPropertiesBuilder builder = DiagnosticPropertiesBuilder();
+    const {{name.pascalCase()}}ThemeData().debugFillProperties(builder);
+
+    final List<String> description = builder.properties
+        .where((DiagnosticsNode node) => !node.isFiltered(DiagnosticLevel.info))
+        .map((DiagnosticsNode node) => node.toString())
+        .toList();
+
+    expect(description, <String>[]);
+  });
+
+  testWidgets('{{name.pascalCase()}}ThemeData implements debugFillProperties',
+      (WidgetTester tester) async {
+    final fakeObject = Object();
+
+    final DiagnosticPropertiesBuilder builder = DiagnosticPropertiesBuilder();
+    {{name.pascalCase()}}ThemeData(
+      {{name.camelCase()}}Property: fakeObject,
+    ).debugFillProperties(builder);
+
+    final List<String> description = builder.properties
+        .where((DiagnosticsNode node) => !node.isFiltered(DiagnosticLevel.info))
+        .map((DiagnosticsNode node) => node.toString())
+        .toList();
+
+    expect(description, <dynamic>[
+      allOf(startsWith('{{name.camelCase()}}Property:'), contains('Object')),
+    ]);
+  });
+
+  // A test case where the theme is introduced with the {{name.pascalCase()}}Theme widget.
+  testWidgets('{{name.pascalCase()}} use {{name.sentenceCase()}} theme', (WidgetTester tester) async {
+    const Object fakeObject = Object();
+
+    final {{name.pascalCase()}}ThemeData {{name.camelCase()}}Theme = {{name.pascalCase()}}ThemeData(
+      {{name.camelCase()}}Property: fakeObject,
+    );
+
+    await tester.pumpWidget(
+      MaterialApp(
+        home: {{name.pascalCase()}}Theme(
+          data: {{name.camelCase()}}Theme,
+          child: Material(
+            child: Column(
+              children: <Widget>[
+                {{name.pascalCase()}}(),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+
+    final Text {{name.camelCase()}}Widget = tester.widget(
+      find.descendant(
+        of: find.byType({{name.pascalCase()}}),
+        matching: find.byType(Text),
+      ),
+    );
+
+    expect({{name.camelCase()}}Widget.data == fakeObject.toString(), isTrue);
+  });
+}

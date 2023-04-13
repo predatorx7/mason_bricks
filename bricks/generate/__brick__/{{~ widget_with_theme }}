@@ -1,0 +1,2 @@
+final theme = HelloWorldTheme.of(context);
+    return Text(theme.helloWorldProperty.toString());
