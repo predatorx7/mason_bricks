@@ -22,6 +22,7 @@ class {{name.pascalCase()}}Screen extends ConsumerWidget {
 
   static final navigation = _{{name.pascalCase()}}ScreenNavigation();
 
+  @override
   Widget build(BuildContext context, WidgetRef ref) {
     ref.listen<{{name.pascalCase()}}ScreenState>(
       {{name.camelCase()}}ControllerProvider, 

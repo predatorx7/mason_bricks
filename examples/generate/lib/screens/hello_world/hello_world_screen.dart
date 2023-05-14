@@ -14,7 +14,7 @@ class _HelloWorldScreenNavigation {
     },
   );
 
-  // add other ways create a path for navigating to this screen. 
+  // add other ways create a path for navigating to this screen.
 }
 
 class HelloWorldScreen extends ConsumerWidget {
@@ -24,7 +24,7 @@ class HelloWorldScreen extends ConsumerWidget {
 
   Widget build(BuildContext context, WidgetRef ref) {
     ref.listen<HelloWorldScreenState>(
-      helloWorldControllerProvider, 
+      helloWorldControllerProvider,
       (prev, next) {
         // do something
       },
@@ -44,5 +44,5 @@ class HelloWorldScreen extends ConsumerWidget {
         child: Placeholder(),
       ),
     );
-  }   
+  }
 }

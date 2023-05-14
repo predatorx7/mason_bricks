@@ -1,2 +1,2 @@
-final theme = HelloWorldTheme.of(context);
-    return Text(theme.helloWorldProperty.toString());
+final theme = {{name.pascalCase()}}Theme.of(context);
+    return Text(theme.{{name.camelCase()}}Property.toString());
