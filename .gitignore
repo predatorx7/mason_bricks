@@ -4,5 +4,6 @@
 build/
 pubspec.lock
 mason-lock.json
+mason.yaml
 
 examples/delete/
