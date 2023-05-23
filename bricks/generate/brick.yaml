@@ -28,3 +28,4 @@ vars:
     prompt: What is the di framework?
     values:
       - riverpod
+      - none

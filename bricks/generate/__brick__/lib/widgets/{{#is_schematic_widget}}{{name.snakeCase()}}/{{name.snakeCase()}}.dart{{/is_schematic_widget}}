@@ -7,6 +7,7 @@ export '{{name.snakeCase()}}_theme.dart';
 class {{name.pascalCase()}} extends StatelessWidget {
   const {{name.pascalCase()}}({super.key});
 
+  @override
   Widget build(BuildContext context) {
     {{#needs_theme_for_widget}}{{> widget_with_theme }}{{/needs_theme_for_widget}}{{^needs_theme_for_widget}}{{> widget_without_theme }}{{/needs_theme_for_widget}}
   }
