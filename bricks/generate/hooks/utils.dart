@@ -2,8 +2,6 @@ import 'dart:io';
 import 'package:path/path.dart' as path;
 import 'package:yaml/yaml.dart' as yaml;
 
-final kDebugMode = Platform.environment['kDebugMode'] == 'true';
-
 String getPackageName([Directory? directory]) {
   final current = directory ?? Directory.current;
   final currentDirectoryAbsolutePath = current.absolute.path;

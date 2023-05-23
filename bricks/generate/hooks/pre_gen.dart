@@ -26,15 +26,6 @@ import 'package:mason/mason.dart';
 import 'utils.dart';
 
 Future<void> run(HookContext context) async {
-  if (!kDebugMode) return _run(context);
-  try {
-    await _run(context);
-  } catch (e, s) {
-    context.logger.err('Something went wrong\n$e\n$s');
-  }
-}
-
-Future<void> _run(HookContext context) async {
   final schematic = context.vars['schematic'] as String;
 
   final di = context.vars['di'] as String?;
