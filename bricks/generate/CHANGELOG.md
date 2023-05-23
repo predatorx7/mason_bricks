@@ -1,6 +1,7 @@
-# 0.1.3+1
+# 0.1.3
 
 - Fix pre-gen hook ending with error.
+- You can disable generation of tests by using the `has_tests` variable.
 
 # 0.1.2+1
 
