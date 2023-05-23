@@ -1,5 +1,6 @@
 {
     "schematic": "screen",
     "name": "hello world",
-    "di": "riverpod"
+    "di": "riverpod",
+    "include_tests": true
 }

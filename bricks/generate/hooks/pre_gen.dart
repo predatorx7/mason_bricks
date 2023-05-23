@@ -44,6 +44,8 @@ Future<void> run(HookContext context) async {
     'is_schematic_widget': schematic == 'widget',
     'use_di_riverpod': di == 'riverpod',
     'package_name': packageName,
+    'needs_theme_for_widget': false,
+    'methods': null,
   };
 
   switch (schematic) {

@@ -29,3 +29,8 @@ vars:
     values:
       - riverpod
       - none
+  has_tests:
+    type: boolean
+    default: true
+    description: Confirmation for generating sample tests for the generated components
+    prompt: Do you want to add tests for this component?

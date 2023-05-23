@@ -1,3 +1,7 @@
+# 0.1.3+1
+
+- Fix pre-gen hook ending with error.
+
 # 0.1.2+1
 
 - Update README.md

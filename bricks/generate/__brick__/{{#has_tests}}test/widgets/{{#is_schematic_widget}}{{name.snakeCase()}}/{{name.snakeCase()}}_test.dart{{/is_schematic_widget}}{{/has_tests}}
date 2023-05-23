@@ -1,0 +1,18 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
+
+import 'package:{{package_name}}/widgets/{{name.snakeCase()}}/{{name.snakeCase()}}.dart';
+
+void main() {
+  testWidgets('{{name.sentenceCase()}}', (WidgetTester tester) async {
+    await tester.pumpWidget(
+      const MaterialApp(
+        home: Scaffold(
+          body: {{name.pascalCase()}}(),
+        ),
+      ),
+    );
+
+    expect(find.byType({{name.pascalCase()}}), findsOneWidget);
+  });
+}
