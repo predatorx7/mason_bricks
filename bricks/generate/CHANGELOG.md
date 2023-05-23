@@ -2,6 +2,7 @@
 
 - Fix pre-gen hook ending with error.
 - Add missing `@override` annotation in templates.
+- Add simple tests for `pre-gen` hooks.
 - You can disable generation of tests by using the `has_tests` variable.
 
 # 0.1.2+1
