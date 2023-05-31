@@ -1,0 +1,13 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import '{{name.snakeCase()}}_state.dart';
+
+class {{name.pascalCase()}}Controller extends StateNotifier<{{name.pascalCase()}}ScreenState> {
+  {{name.pascalCase()}}Controller(this._ref): super(const {{name.pascalCase()}}ScreenState());
+
+  final Ref _ref;
+
+  void doSomething() {
+    // TODO: implement
+  }
+}

@@ -18,7 +18,7 @@ A collection of bricks that enable developers to be more productive when writing
 
 | Brick                                                          | Description                                                                                                                   | Version |
 | -------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ------- |
-| [generate](https://brickhub.dev/bricks/generate)                     | Generates files based on a schematic.      | 0.1.3 |
+| [generate](https://brickhub.dev/bricks/generate)                     | Generates files based on a schematic.      | 0.1.4 |
 | In the works...                                                | In the works...                                                                                                               | N/A     |
 
 ## Documentation

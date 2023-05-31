@@ -1,4 +1,0 @@
-export '{{name.snakeCase()}}_controller.dart';
-export '{{name.snakeCase()}}_provider.dart';
-export '{{name.snakeCase()}}_screen.dart';
-export '{{name.snakeCase()}}_state.dart';

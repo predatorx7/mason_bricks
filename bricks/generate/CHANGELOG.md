@@ -1,3 +1,7 @@
+# 0.1.4
+
+- Update file names in template to use a smaller path (Path length reduced upto 11-30%)
+
 # 0.1.3
 
 - Fix pre-gen hook ending with error.

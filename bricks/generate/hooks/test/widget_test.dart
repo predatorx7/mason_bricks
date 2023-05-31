@@ -30,7 +30,7 @@ void main() {
         expect(context.vars['is_schematic_screen'], isFalse);
         expect(context.vars['is_schematic_service'], isFalse);
         expect(context.vars['use_di_riverpod'], isFalse);
-        expect(context.vars['needs_theme_for_widget'], isTrue);
+        expect(context.vars['make_widget_theme'], isTrue);
       });
     });
   });

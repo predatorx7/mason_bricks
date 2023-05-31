@@ -23,43 +23,33 @@
 
 import 'package:mason/mason.dart';
 
+import 'pre_gen_values.dart';
 import 'utils.dart';
 
 Future<void> run(HookContext context) async {
-  final schematic = context.vars['schematic'] as String;
-
-  final di = context.vars['di'] as String?;
-  final name = context.vars['name'] as String;
+  final variables = VariablesOf(context);
+  final snakeCaseName = variables.name.snakeCase;
 
   final logger = context.logger;
 
-  final packageName = getPackageName();
-
-  logger.info('Generating for package "$packageName"');
-
   context.vars = {
     ...context.vars,
-    'is_schematic_screen': schematic == 'screen',
-    'is_schematic_service': schematic == 'service',
-    'is_schematic_widget': schematic == 'widget',
-    'use_di_riverpod': di == 'riverpod',
-    'package_name': packageName,
-    'needs_theme_for_widget': false,
-    'methods': null,
+    CreatedVariableNames.makeWidgetTheme: false,
+    CreatedVariableNames.methods: null,
   };
 
-  switch (schematic) {
-    case 'screen':
+  switch (variables.schematic) {
+    case SchematicValues.screen:
       final screenRoutePath = logger.prompt(
         'What is the route path for the screen?',
-        defaultValue: '/${name.snakeCase}',
+        defaultValue: '/$snakeCaseName',
       );
       context.vars = {
         ...context.vars,
-        'screen_route_path': screenRoutePath,
+        CreatedVariableNames.screenRoutePath: screenRoutePath,
       };
       break;
-    case 'service':
+    case SchematicValues.service:
       final methods = <Map<String, dynamic>>[];
 
       if (!logger.confirm(
@@ -67,8 +57,8 @@ Future<void> run(HookContext context) async {
         defaultValue: true,
       )) {
         methods.add({
-          'name': 'doSomething',
-          'type': 'void',
+          MethodCreatedVariableNames.name: 'doSomething',
+          MethodCreatedVariableNames.type: 'void',
         });
       } else {
         logger
@@ -99,25 +89,47 @@ Future<void> run(HookContext context) async {
           final propertyType = splitProperty[0];
           final propertyName = splitProperty[1];
           methods.add({
-            'name': propertyName,
-            'type': propertyType,
+            MethodCreatedVariableNames.name: propertyName,
+            MethodCreatedVariableNames.type: propertyType,
           });
         }
       }
       context.vars = {
         ...context.vars,
-        'methods': methods,
+        CreatedVariableNames.methods: methods,
       };
       break;
-    case 'widget':
+    case SchematicValues.widget:
       final widgetNeedsTheme = logger.confirm(
         '? Do you want to add an InheritedTheme to your widget?',
         defaultValue: true,
       );
       context.vars = {
         ...context.vars,
-        'needs_theme_for_widget': widgetNeedsTheme,
+        CreatedVariableNames.makeWidgetTheme: widgetNeedsTheme,
       };
       break;
   }
+
+  final packageName = getPackageName();
+
+  logger.info('Generating for package "$packageName"');
+
+  final currentVars = context.vars;
+
+  context.vars = {
+    ...currentVars,
+    CreatedVariableNames.snakeName: snakeCaseName,
+    CreatedVariableNames.packageName: packageName,
+    CreatedVariableNames.isSchematicScreen: variables.isScreen,
+    CreatedVariableNames.isSchematicService: variables.isService,
+    CreatedVariableNames.isSchematicWidget: variables.isWidget,
+    CreatedVariableNames.makeScreenTest:
+        variables.hasTests && variables.isScreen,
+    CreatedVariableNames.makeServiceTest:
+        variables.hasTests && variables.isService,
+    CreatedVariableNames.makeWidgetTest:
+        variables.hasTests && variables.isWidget,
+    CreatedVariableNames.useDiRiverpod: variables.useDiRiverpod,
+  };
 }

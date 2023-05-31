@@ -1,6 +1,0 @@
-class {{name.pascalCase()}}ScreenState {
-  const {{name.pascalCase()}}ScreenState();
-
-  @override
-  String toString() => '{{name.sentenceCase()}}';
-}
