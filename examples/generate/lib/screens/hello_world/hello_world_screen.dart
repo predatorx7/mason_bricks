@@ -22,9 +22,10 @@ class HelloWorldScreen extends ConsumerWidget {
 
   static final navigation = _HelloWorldScreenNavigation();
 
+  @override
   Widget build(BuildContext context, WidgetRef ref) {
     ref.listen<HelloWorldScreenState>(
-      helloWorldControllerProvider,
+      helloWorldControllerProvider, 
       (prev, next) {
         // do something
       },
@@ -44,5 +45,5 @@ class HelloWorldScreen extends ConsumerWidget {
         child: Placeholder(),
       ),
     );
-  }
+  }   
 }

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-{{#needs_theme_for_widget}}
+{{#make_widget_theme}}
 import '{{name.snakeCase()}}_theme.dart';
 export '{{name.snakeCase()}}_theme.dart';
-{{/needs_theme_for_widget}}
+{{/make_widget_theme}}
 
 class {{name.pascalCase()}} extends StatelessWidget {
   const {{name.pascalCase()}}({super.key});
 
   @override
   Widget build(BuildContext context) {
-    {{#needs_theme_for_widget}}{{> widget_with_theme }}{{/needs_theme_for_widget}}{{^needs_theme_for_widget}}{{> widget_without_theme }}{{/needs_theme_for_widget}}
+    {{#make_widget_theme}}{{> widget_with_theme }}{{/make_widget_theme}}{{^make_widget_theme}}{{> widget_without_theme }}{{/make_widget_theme}}
   }
 }

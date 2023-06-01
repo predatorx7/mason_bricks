@@ -32,10 +32,10 @@ class HelloWorldThemeData with Diagnosticable {
 
   /// Linearly interpolate between two Hello world themes.
   static HelloWorldThemeData? lerp(
-    HelloWorldThemeData? a,
-    HelloWorldThemeData? b,
-    double t,
-  ) {
+      HelloWorldThemeData? a, 
+      HelloWorldThemeData? b, 
+      double t,
+    ) {
     if (a == null && b == null) {
       return null;
     }

@@ -14,7 +14,7 @@ class _{{name.pascalCase()}}ScreenNavigation {
     },
   );
 
-  // add other ways create a path for navigating to this screen. 
+  // add other ways create a path for navigating to this screen.
 }
 
 class {{name.pascalCase()}}Screen extends ConsumerWidget {

@@ -1,4 +1,4 @@
-./scripts/cleanup_mason.sh
+.\scripts\cleanup_mason.ps1
 
 mason init
 mason add generate --path ./bricks/generate
