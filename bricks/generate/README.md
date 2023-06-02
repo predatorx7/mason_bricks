@@ -44,7 +44,7 @@ Then add your methods in the service! (Optional and available only for service)
 | ------------- | ---------------------------------------------------------- | ----------------------------------------- | -------- |
 | `schematic`  | The schematic to generate                                      | screen (screen, service, widget)                                     | `enum` |
 | `name` | The name of the schematic |      | `string`  |
-| `di`       | The di framework that will be used by components                                         | riverpod (riverpod) | `enum`   |
+| `di`       | The framework that will be used by components for di or state management                                         | riverpod (riverpod) | `enum`   |
 
 
 ### Config
@@ -67,7 +67,7 @@ Then add your methods in the service! (Optional and available only for service)
 | ------------- | ------------------------------------------------------------------------------ | -------- |
 | `schematic`  | The schematic to generate                                                          | `enum` |
 | `name` | The name of the schematic                     | `string`  |
-| `di`       | The di framework that will be used by components                                                             | `enum`   |
+| `di`       | The framework that will be used by components for di or state management                                                             | `enum`   |
 
 ## Outputs 📦
 

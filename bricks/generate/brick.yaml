@@ -3,7 +3,7 @@ description: Generates files based on a schematic.
 
 repository: https://github.com/predatorx7/mason_bricks/tree/main/bricks/generate
 
-version: 0.1.4+1
+version: 0.1.5
 
 environment:
   mason: ">=0.1.0-dev.49 <0.1.0"
@@ -24,12 +24,22 @@ vars:
   di:
     type: enum
     default: riverpod
-    description: The di framework that will be used by components
-    prompt: What is the di framework?
+    description: The framework that will be used by components for di or state management
+    prompt: What is the di/statemanagement framework?
     values:
       - riverpod
+      - streams
+      - none
   has_tests:
     type: boolean
     default: true
     description: Confirmation for generating sample tests for the generated components
     prompt: Do you want to add tests for this component?
+  project_structure:
+    type: enum
+    default: layer_first
+    description: The structure of files, and directories organization in the project
+    prompt: What should be the project structure?
+    values:
+      - layer_first
+      - feature_first

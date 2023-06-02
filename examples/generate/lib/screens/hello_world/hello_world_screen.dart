@@ -25,7 +25,7 @@ class HelloWorldScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     ref.listen<HelloWorldScreenState>(
-      helloWorldControllerProvider, 
+      helloWorldControllerProvider,
       (prev, next) {
         // do something
       },
@@ -45,5 +45,5 @@ class HelloWorldScreen extends ConsumerWidget {
         child: Placeholder(),
       ),
     );
-  }   
+  }
 }

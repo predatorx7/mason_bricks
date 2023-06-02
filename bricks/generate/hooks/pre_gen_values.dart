@@ -13,7 +13,10 @@ class VariablesOf {
   bool get isScreen => schematic == SchematicValues.screen;
   bool get isService => schematic == SchematicValues.service;
   bool get isWidget => schematic == SchematicValues.widget;
-  bool get useDiRiverpod => di == DiValues.riverpod;
+  bool get isDiRiverpod => di == DiValues.riverpod;
+  bool get isDiStreams => di == DiValues.streams;
+  bool get isDiBloc => di == DiValues.bloc;
+  bool get isDiNone => di == DiValues.none;
 }
 
 class SchematicValues {
@@ -28,6 +31,9 @@ class DiValues {
   DiValues._();
 
   static const String riverpod = 'riverpod';
+  static const String streams = 'streams';
+  static const String bloc = 'bloc';
+  static const String none = 'none';
 }
 
 class CreatedVariableNames {

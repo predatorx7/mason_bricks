@@ -130,6 +130,6 @@ Future<void> run(HookContext context) async {
         variables.hasTests && variables.isService,
     CreatedVariableNames.makeWidgetTest:
         variables.hasTests && variables.isWidget,
-    CreatedVariableNames.useDiRiverpod: variables.useDiRiverpod,
+    CreatedVariableNames.useDiRiverpod: variables.isDiRiverpod,
   };
 }

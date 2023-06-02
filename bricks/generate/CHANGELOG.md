@@ -1,3 +1,9 @@
+# 0.1.5
+
+- Add `streams`, and `none` as options for di/statemanagement.
+- Add `project_structure` for structuring of files, and directories organization in the project with `layer_first`, and `feature_first` options.
+- Add support for generating methods that create url from path parameters and query parameters in a path of a screen
+
 # 0.1.4+1
 
 - Replace `state_notifier` import with `riverpod` in controller.
