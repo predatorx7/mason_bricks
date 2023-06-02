@@ -1,4 +1,4 @@
-import 'package:state_notifier/state_notifier.dart';
+import 'package:riverpod/riverpod.dart';
 
 import 'hello_world_state.dart';
 

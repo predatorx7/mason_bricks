@@ -1,3 +1,7 @@
+# 0.1.4+1
+
+- Replace `state_notifier` import with `riverpod` in controller.
+
 # 0.1.4
 
 - Update file names in template to use a smaller path (Path length reduced upto 11-30%)
