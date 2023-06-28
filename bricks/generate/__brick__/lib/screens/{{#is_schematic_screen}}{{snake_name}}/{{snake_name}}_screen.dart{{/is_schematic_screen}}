@@ -3,13 +3,16 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '{{name.snakeCase()}}_provider.dart';
-import '{{name.snakeCase()}}_state.dart';
+import '{{name.snakeCase()}}_data.dart';
 
 // TODO: Add `{{name.pascalCase()}}Screen.navigation` in your `GoRouter`'s routes
 class _{{name.pascalCase()}}ScreenNavigation {
   final route = GoRoute(
     path: '{{{screen_route_path}}}',
     builder: (context, state) {
+      {{#screen_route_path_params}}
+      {{.}}
+      {{/screen_route_path_params}}
       return {{name.pascalCase()}}Screen();
     },
   );

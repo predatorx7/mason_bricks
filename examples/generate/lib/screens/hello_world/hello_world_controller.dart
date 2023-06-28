@@ -1,6 +1,6 @@
 import 'package:riverpod/riverpod.dart';
 
-import 'hello_world_state.dart';
+import 'hello_world_data.dart';
 
 class HelloWorldController extends StateNotifier<HelloWorldScreenState> {
   HelloWorldController(this._ref) : super(const HelloWorldScreenState());

@@ -55,3 +55,35 @@ String _escapeGroup(String group, [String? name]) {
   }
   return escapedGroup;
 }
+
+/// Reconstructs the full path from a [pattern] and path parameters.
+///
+/// This is useful for restoring the original path from a [RegExpMatch].
+String patternToPath(String pattern, Map<String, String> pathParameters) {
+  final buffer = StringBuffer();
+  var start = 0;
+  for (final match in _parameterRegExp.allMatches(pattern)) {
+    if (match.start > start) {
+      buffer.write(pattern.substring(start, match.start));
+    }
+    final name = match[1]!;
+    buffer.write(pathParameters[name]);
+    start = match.end;
+  }
+
+  if (start < pattern.length) {
+    buffer.write(pattern.substring(start));
+  }
+  return buffer.toString();
+}
+
+String createGeneratedPath(String pattern) {
+  final pathParameters = <String>[];
+  patternToRegExp(pattern, pathParameters);
+  return patternToPath(
+    pattern,
+    {
+      for (final param in pathParameters) param: '\${params.$param}',
+    },
+  );
+}

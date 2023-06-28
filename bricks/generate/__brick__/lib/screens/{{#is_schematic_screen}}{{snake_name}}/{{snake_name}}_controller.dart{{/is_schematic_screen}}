@@ -1,6 +1,6 @@
 import 'package:riverpod/riverpod.dart';
 
-import '{{name.snakeCase()}}_state.dart';
+import '{{name.snakeCase()}}_data.dart';
 
 class {{name.pascalCase()}}Controller extends StateNotifier<{{name.pascalCase()}}ScreenState> {
   {{name.pascalCase()}}Controller(this._ref) : super(const {{name.pascalCase()}}ScreenState());

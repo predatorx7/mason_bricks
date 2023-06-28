@@ -1,7 +1,7 @@
 import 'package:riverpod/riverpod.dart';
 
 import '{{name.snakeCase()}}_controller.dart';
-import '{{name.snakeCase()}}_state.dart';
+import '{{name.snakeCase()}}_data.dart';
 
 final {{name.camelCase()}}ControllerProvider = StateNotifierProvider.autoDispose<{{name.pascalCase()}}Controller, {{name.pascalCase()}}ScreenState>((ref) {
   return {{name.pascalCase()}}Controller(ref); 

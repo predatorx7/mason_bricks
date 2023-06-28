@@ -15,5 +15,12 @@ void main() {
       expect(getPathParams('/home'), isEmpty);
       expect(getPathParams('/home/:world'), contains('world'));
     });
+
+    test('generates path from param keys', () {
+      expect(
+        createGeneratedPath('/hello/:foo/world/:bar'),
+        equals(r'/hello/${params.foo}/world/${params.bar}'),
+      );
+    });
   });
 }

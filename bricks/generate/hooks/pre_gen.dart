@@ -63,11 +63,16 @@ Future<void> run(HookContext context) async {
         }
       }
 
+      final generatedPath = path_utils.createGeneratedPath(
+        screenRoutePath,
+      );
+
       context.vars = {
         ...context.vars,
         CreatedVariableNames.screenRoutePath: screenRoutePath,
         CreatedVariableNames.screenRoutePathParams: pathParams,
         CreatedVariableNames.screenRouteQueryParams: queryParameters,
+        CreatedVariableNames.screenRouteGeneratedPath: generatedPath,
       };
       break;
     case SchematicValues.service:

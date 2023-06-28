@@ -49,6 +49,7 @@ class CreatedVariableNames {
   static const String screenRoutePath = 'screen_route_path';
   static const String screenRoutePathParams = 'screen_route_path_params';
   static const String screenRouteQueryParams = 'screen_route_query_params';
+  static const String screenRouteGeneratedPath = 'screen_route_gen_path';
   static const String snakeName = 'snake_name';
   static const String makeScreenTest = 'make_screen_test';
   static const String makeServiceTest = 'make_service_test';
