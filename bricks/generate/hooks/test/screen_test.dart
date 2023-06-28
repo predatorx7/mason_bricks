@@ -25,12 +25,21 @@ void main() {
           ),
         ).thenReturn('/$name');
 
+        when(
+          () => logger.confirm(
+            '? Do you want to add query parameters to this route?',
+            defaultValue: any(named: 'defaultValue', that: equals(false)),
+          ),
+        ).thenReturn(false);
+
         await pre_gen.run(context);
 
         expect(context.vars['is_schematic_screen'], isTrue);
         expect(context.vars['is_schematic_service'], isFalse);
         expect(context.vars['is_schematic_widget'], isFalse);
         expect(context.vars['screen_route_path'], '/$name');
+        expect(context.vars['screen_route_path_params'], isEmpty);
+        expect(context.vars['screen_route_query_params'], isEmpty);
         expect(context.vars['use_di_riverpod'], isFalse);
       });
     });

@@ -1,28 +1,6 @@
-// MIT License
-//
-// Original work Copyright (c) 2023 Luke Moody
-// Modified work Copyright (c) 2023 Mushaheed Syed
-//
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
-//
-// The above copyright notice and this permission notice shall be included in
-// all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// SOFTWARE.
-
 import 'package:mason/mason.dart';
 
+import 'path_utils.dart' as path_utils;
 import 'pre_gen_values.dart';
 import 'utils.dart';
 
@@ -44,9 +22,52 @@ Future<void> run(HookContext context) async {
         'What is the route path for the screen?',
         defaultValue: '/$snakeCaseName',
       );
+
+      final pathParams = <String>[];
+      path_utils.patternToRegExp(screenRoutePath, pathParams);
+      if (pathParams.isNotEmpty) {
+        logger.info('Detected path params: ${pathParams.join(', ')}');
+      }
+
+      final queryParameters = <String>[];
+
+      if (logger.confirm(
+        '? Do you want to add query parameters to this route?',
+      )) {
+        logger
+          ..alert(lightYellow.wrap('enter "e" to exit adding query params'))
+          ..alert('Type query param name:');
+
+        while (true) {
+          final queryParameterName = logger
+              .prompt(':')
+              .replaceAll(
+                RegExp(r'\s+'),
+                ' ',
+              )
+              .trim();
+          if (queryParameterName.toLowerCase() == 'e') {
+            break;
+          }
+
+          if (queryParameterName.contains(' ') ||
+              queryParameterName.contains(',')) {
+            logger.alert(
+              // ignore: lines_longer_than_80_chars
+              'That was not a valid format -> queryParamName e.g, foo_bar',
+            );
+            continue;
+          }
+
+          queryParameters.add(queryParameterName);
+        }
+      }
+
       context.vars = {
         ...context.vars,
         CreatedVariableNames.screenRoutePath: screenRoutePath,
+        CreatedVariableNames.screenRoutePathParams: pathParams,
+        CreatedVariableNames.screenRouteQueryParams: queryParameters,
       };
       break;
     case SchematicValues.service:
